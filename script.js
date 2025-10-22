@@ -1,35 +1,16 @@
-function getComputerChoice(){
+function getComputerChoice() {
 
-    let randomNumber = (Math.random() * 10);
+  const r = Math.random(); 
 
-    if(randomNumber < 1/3){
-        return "rock";
-    }else if(randomNumber < 2/3){
-        return "paper";
-    }else{
-        return "scissors";
-    }
+  if (r < 1/3) return "rock";
 
+  else if (r < 2/3) return "paper";
+
+  else return "scissors";
 }
 
 
 
-function getHumanChoice(){
-    
-    let humanChoice = prompt("Enter your choice: 1 = rock, 2 = paper, 3 =scissors");
-
-    switch(humanChoice){
-        case "1":
-            return "rock";
-        case "2":
-            return "paper";
-        case "3":
-            return "scissors";
-    default:
-        return "Invalid choice";
-    }
-
-} 
 
 
 /////////////////////////////////////////////////////////////////////
@@ -60,29 +41,61 @@ function playRound(computerChoice, humanChoice){
 //////////////////////////////////////////////////////////////////////
 
 
-function playgame(){
-
-let finalresut;
 
 
-for(let i=0; i<=4; i++){
+function result(){
 
-    playRound(getComputerChoice(), getHumanChoice());
-
-    if(i==4){
-        finalresut =
-         ComputerScore == HumanScore ? "It's a draw" :
-         ComputerScore > HumanScore ? "The computer won 🖥🤢"
-         : "You won 👏💕🙌" ;
-
-         console.log("ComputerScore :  " + ComputerScore + "   HumanScore :   "+ HumanScore +" ---> "+ finalresut);
-    }
-
-
-}
+     document.querySelector('#result1').textContent = `Computer Choice ${computerChoice} : Your Scroe : ${HumanScore}  Computer Scroe: ${ComputerScore}`;
+    
+  if(ComputerScore == 5){
+     document.querySelector('#final-result').textContent= "computer won";
+  }else if( HumanScore == 5){
+     document.querySelector('#final-result').textContent = "you won";
+  }
 
 }
 
 
 
-playgame();
+document.querySelector('#rock').addEventListener('click', () => {
+
+
+    playRound(getComputerChoice(),"rock");
+
+  result();
+
+
+});
+
+
+
+
+
+
+document.querySelector('#paper').addEventListener('click', () => {
+
+
+    playRound(getComputerChoice(),"paper");
+
+  result();
+
+
+});
+
+
+
+
+
+
+
+document.querySelector('#scissors').addEventListener('click', () => {
+
+
+    playRound(getComputerChoice(),"scissors");
+
+  result();
+
+
+});
+
+
