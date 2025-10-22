@@ -45,7 +45,7 @@ function playRound(computerChoice, humanChoice){
 
 function result(){
 
-     document.querySelector('#result1').textContent = `Computer Choice ${computerChoice} : Your Scroe : ${HumanScore}  Computer Scroe: ${ComputerScore}`;
+     document.querySelector('#result1').textContent = ` Your Scroe : ${HumanScore}  Computer Scroe: ${ComputerScore}`;
     
   if(ComputerScore == 5){
      document.querySelector('#final-result').textContent= "computer won";
